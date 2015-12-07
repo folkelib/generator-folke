@@ -1,0 +1,5 @@
+﻿{
+  "Data": {
+    "IdentityConnection": { "ConnectionString": "Data Source=test.db" }
+  }
+}
