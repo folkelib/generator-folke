@@ -1,5 +1,5 @@
 # generator-folke [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Creates an SPA based on the Folke libraries
+> Creates an SPA based on the Folke libraries. This generator is *in developement* and should be used only if you are interrested in contributing to the project.
 
 ## Installation
 
@@ -10,11 +10,41 @@ npm install -g yo
 npm install -g generator-folke
 ```
 
-Then generate your new project:
+You also need Typescript and the Typescript definitions:
+```bash
+npm install -g typescript
+npm install -g tsd
+```
+
+Then generate your new project from an *empty* directory:
 
 ```bash
 yo folke
 ```
+
+The project name is the directory name, it should only have letters and
+use camel casing.
+
+## Usage
+
+To compile the client:
+```bash
+gulp
+```
+
+To run the web site:
+```bash
+dnx web
+```
+
+The site is reachable at http://localhost:5000/
+
+There is a debug version (the scripts are not optimized) that
+is available at http://localhost:5000/debug.html
+
+You should run `gulp watch` so that the Javascript and HTML files
+are updated as you save them. It only works for the debug version of the
+web site.
 
 ## Getting To Know Yeoman
 
@@ -22,7 +52,7 @@ Yeoman has a heart of gold. He&#39;s a person with feelings and opinions, but he
 
 ## License
 
-MIT © [Sidoine De Wispelaere]()
+MIT © [Sidoine De Wispelaere](https://sidoine.net)
 
 
 [npm-image]: https://badge.fury.io/js/generator-folke.svg
