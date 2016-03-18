@@ -1,6 +1,6 @@
 {
   "name": "generator-folke",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creates an SPA based on the Folke libraries",
   "homepage": "https://github.com/folkelib/generator-folke",
   "author": {
