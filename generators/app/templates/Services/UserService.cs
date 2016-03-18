@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Folke.Elm;
 using Folke.Identity.Server.Services;
+using Folke.Identity.Server.Views;
 using <%= name %>.ViewModels;
 using <%= name %>.Data;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Identity;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.OptionsModel;
+using Folke.Elm.Fluent;
 
 namespace <%= name %>.Services
 {
-    public class UserService : AbstractUserService<Account, AccountViewModel>
+    public class UserService : BaseUserService<Account, AccountViewModel>
     {
-        public UserService(IUserStore<Account> store, IOptions<IdentityOptions> optionsAccessor, IPasswordHasher<Account> passwordHasher, IEnumerable<IUserValidator<Account>> userValidators, IEnumerable<IPasswordValidator<Account>> passwordValidators, ILookupNormalizer keyNormalizer, IdentityErrorDescriber errors, IServiceProvider services, ILogger<UserManager<Account>> logger, IHttpContextAccessor contextAccessor) : base(store, optionsAccessor, passwordHasher, userValidators, passwordValidators, keyNormalizer, errors, services, logger, contextAccessor)
+        private readonly IFolkeConnection connection;
+
+        public UserService(IFolkeConnection connection, IHttpContextAccessor httpContextAccessor, UserManager<Account> userManager) : base(httpContextAccessor, userManager)
         {
+            this.connection = connection;
+        }
+
+        public override Task<IList<Account>> Search(UserSearchFilter name, int offset, int limit, string sortColumn)
+        {
+            return connection.SelectAllFrom<Account>().OrderBy(x => x.UserName).Limit(offset, limit).ToListAsync();
         }
 
         public override AccountViewModel MapToUserView(Account user)

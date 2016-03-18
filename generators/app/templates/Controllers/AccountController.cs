@@ -2,6 +2,7 @@
 using Folke.Identity.Server.Services;
 using <%= name %>.Data;
 using <%= name %>.ViewModels;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 
 namespace <%= name %>.Controllers
@@ -9,7 +10,7 @@ namespace <%= name %>.Controllers
     [Route("api/account")]
     public class AccountController : BaseUserController<Account, AccountViewModel, int>
     {
-        public AccountController(IUserService<Account, AccountViewModel> userManager, IUserSignInManager<Account> signInManager, IUserEmailService<Account> emailService) : base(userManager, signInManager, emailService)
+         public AccountController(IUserService<Account, AccountViewModel> userService, UserManager<Account> userManager, SignInManager<Account> signInManager, IUserEmailService<Account> emailService) : base(userService, userManager, signInManager, emailService)
         {
         }
     }

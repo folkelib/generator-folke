@@ -6,12 +6,12 @@ namespace <%= name %>.Services
 {
     public class EmailService : IUserEmailService<Account>
     {
-        public Task SendEmailConfirmationEmail(Account user)
+        public Task SendEmailConfirmationEmail(Account user, string code)
         {
             return Task.FromResult(0);
         }
 
-        public Task SendPasswordResetEmail(Account user)
+        public Task SendPasswordResetEmail(Account user, string code)
         {
             return Task.FromResult(0);
         }

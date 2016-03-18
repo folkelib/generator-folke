@@ -11,11 +11,7 @@ namespace <%= name %>.Controllers
     [Route("api/authentication")]
     public class AuthenticationController : BaseAuthenticationController<Account, int, AccountViewModel>
     {
-        public AuthenticationController(IUserService<Account, AccountViewModel> userManager,
-            SignInManager<Account> signInManager,
-            IUserEmailService<Account> emailService,
-            ILogger<BaseAuthenticationController<Account, int, AccountViewModel>> logger)
-            : base(userManager, signInManager, emailService, logger)
+        public AuthenticationController(IUserService<Account, AccountViewModel> userService, UserManager<Account> userManager, SignInManager<Account> signInManager, IUserEmailService<Account> emailService, ILogger<BaseAuthenticationController<Account, int, AccountViewModel>> logger) : base(userService, userManager, signInManager, emailService, logger)
         {
         }
     }

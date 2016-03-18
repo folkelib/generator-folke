@@ -4,10 +4,8 @@ import Authentication from "bower_components/folke-identity/authentication";
 import * as ko from "knockout";
 
 export default function () {
-    Menu.addRouteButton('Accueil', 'home');
-    Menu.addButton('Se connecter', () => Folke.showPopin('identity-login').then(() => Folke.hidePopin()), 0, ko.computed(() => !Authentication.logged()));
-    Menu.addButton('Se déconnecter', Authentication.logout, 0, Authentication.logged);
-    Menu.addSubMenu('Menu').addRouteButton('About', 'about');
+    Menu.addRouteButton(ko.observable('Accueil'), 'home');
+    Menu.addSubMenu(ko.observable('Menu')).addRouteButton(ko.observable('About'), 'about');
     Folke.registerComponent('components/home', 'home-page');
     Folke.addRoute('home', 'home-page', 1);
     Folke.registerComponent('components/home', 'about');

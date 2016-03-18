@@ -13,6 +13,8 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the unreal ' + chalk.red('generator-folke') + ' generator!'
     ));
 
+    this.csharpName = this.appname.replace(' ', '.');
+    this.name = this.appname.replace('.', '-').replace(' ','-').toLowerCase();
     /*this.prompt({
       type: 'input',
       name: 'name',
@@ -29,7 +31,8 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('**/*'),
       this.destinationPath(''), {
-        name: this.appname
+        name: this.csharpName,
+        jsname: this.name        
       }
     );
     this.fs.copy(this.templatePath('.bowerrc'), this.destinationPath('.bowerrc'));
@@ -40,5 +43,6 @@ module.exports = yeoman.generators.Base.extend({
   install: function () {
     this.installDependencies();
     this.spawnCommand('tsd', ['install']);
+    this.spawnCommand('dnu', ['restore']);
   }
 });

@@ -14,7 +14,7 @@
     "Folke.Elm.Sqlite": "1.1.0-beta-*",
     "Folke.CsTsService": "1.0.0-beta-*",
     "Folke.Mvc.Extensions": "1.0.0-beta-*",
-    "Folke.Identity.Server": "1.0.0-beta-*"
+    "Folke.Identity.Server": "1.2.0-beta-*"
   },
 
   "commands": {

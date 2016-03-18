@@ -15,7 +15,8 @@ var paths = {
     webroot: "./" + project.webroot + "/"
 };
 paths.bower = [paths.src + 'bower_components/**/*.js', paths.src + 'bower_components/**/*.css', paths.src + 'bower_components/**/*.less',
-    paths.src + 'bower_components/folke-identity/**/*.js' ];
+    paths.src + 'bower_components/**/*.otf', paths.src + 'bower_components/**/*.eot', paths.src + 'bower_components/**/*.ttf',
+    paths.src + 'bower_components/**/*.svg', paths.src + 'bower_components/**/*.woff*'];
 paths.bowerDir = paths.webroot + "bower_components/";
 paths.html = paths.src + '**/*.html';
 paths.less = paths.src + "css/style.less";
@@ -55,7 +56,6 @@ var requireJsOptimizerConfig = {
         end: 'require.config({paths: {stripe: "https://js.stripe.com/v2/?"}})'
     }
 };
-
 
 var tsProject = typescript.createProject('src/tsconfig.json');
 
