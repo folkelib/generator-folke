@@ -74,6 +74,7 @@ namespace <%= name %>
             services.AddElmIdentity<Account, Role, int>();
             services.AddIdentityServer<Account, int, EmailService, UserService, AccountViewModel>();
             services.AddRoleIdentityServer<Role, RoleService, RoleViewModel>();
+            services.AddIdentityServerControllers<int, Account, AccountViewModel, Role, RoleViewModel>();
         }
 
         // Configure is called after ConfigureServices is called.
